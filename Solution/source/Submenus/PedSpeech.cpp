@@ -328,7 +328,7 @@ namespace sub
 		{
 			CSimpleIniA ini;
 			ini.SetMultiKey(true);
-			if (ini.LoadFile((GetPathffA(Pathff::Main, true) + "PedSpeechList.txt").c_str()) != SI_Error::SI_OK)
+			if (ini.LoadFile((GetPathffA(Pathff::Main, true) + "PedSpeechList.txt").c_str()) != SI_OK)
 				return false;
 
 			CSimpleIniA::TNamesDepend keys;

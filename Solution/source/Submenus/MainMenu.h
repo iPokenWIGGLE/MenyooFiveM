@@ -12,6 +12,7 @@
 namespace sub
 {
 	void MainMenu();
+	void FiveM_Alert();
 
 }
 

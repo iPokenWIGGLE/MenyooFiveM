@@ -175,9 +175,6 @@
     <ClCompile Include="Submenus\WeatherOptions.cpp">
       <Filter>Submenus\Weather Time</Filter>
     </ClCompile>
-    <ClCompile Include="Submenus\TimeOptions.cpp">
-      <Filter>Submenus\Weather Time</Filter>
-    </ClCompile>
     <ClCompile Include="Submenus\MiscOptions.cpp">
       <Filter>Submenus\Misc</Filter>
     </ClCompile>
@@ -313,6 +310,7 @@
     <ClCompile Include="Menu\Language.cpp">
       <Filter>Menu</Filter>
     </ClCompile>
+    <ClCompile Include="Submenus\TimeOptions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Util\ExePath.h">
@@ -502,9 +500,6 @@
     <ClInclude Include="Submenus\WeatherOptions.h">
       <Filter>Submenus\Weather Time</Filter>
     </ClInclude>
-    <ClInclude Include="Submenus\TimeOptions.h">
-      <Filter>Submenus\Weather Time</Filter>
-    </ClInclude>
     <ClInclude Include="Submenus\MiscOptions.h">
       <Filter>Submenus\Misc</Filter>
     </ClInclude>
@@ -643,6 +638,7 @@
     <ClInclude Include="Menu\Language.h">
       <Filter>Menu</Filter>
     </ClInclude>
+    <ClInclude Include="Submenus\TimeOptions.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Submenus">

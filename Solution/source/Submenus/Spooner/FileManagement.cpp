@@ -2030,7 +2030,7 @@ namespace sub::Spooner
 		bool LoadPlacementsFromSP00NFile(const std::string& filePath)
 		{
 			CSimpleIniA ini;
-			if (ini.LoadFile(filePath.c_str()) != SI_Error::SI_OK)
+			if (ini.LoadFile(filePath.c_str()) != SI_OK)
 				return false;
 
 			std::unordered_set<Hash> vModelHashes;

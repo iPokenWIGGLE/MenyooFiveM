@@ -20,29 +20,34 @@
 //#include "..\Scripting\GTAentity.h"
 #include "..\Scripting\GTAped.h"
 
+using namespace std;
+
 namespace sub
 {
 	// Are these basic (FiveM) player options allowed on 5mods?
 
 	void PlayersSub_()
 	{
-		AddTitle("Players");
+		AddTitle("Players (FiveM)");
 
 		for (int i = 0; i < GAME_PLAYERCOUNT; i++)
 		{
 			if (NETWORK_IS_PLAYER_ACTIVE(i))
 			{
 				bool bPlayerPressed = false;
-				AddOption(GET_PLAYER_NAME(i), bPlayerPressed);
+				int server_id = invoke<int>(0x4D97BCC7, i);
 
-				//if (Menu::printingop == *Menu::currentopATM) Static_240 = i;
+				string name = GET_PLAYER_NAME(i), space = " ID: (", finish = ")";
+				string final = name + space + std::to_string(server_id) + finish;
+
+				AddOption(final, bPlayerPressed, nullFunc, SUB::PLAYERSSUBAMENU, true);
 
 				if (bPlayerPressed)
 				{
 					Static_240 = i;
 					Static_241 = GET_PLAYER_PED(Static_240); // Store ped
 					Static_239 = GET_PLAYER_NAME(Static_240); // Store name
-					Menu::SetSub_new(SUB::PLAYERSSUBAMENU); // Change submenu to 'PlayersSubAMenu_'
+					//Menu::SetSub_new(SUB::PLAYERSSUBAMENU); // Change submenu to 'PlayersSubAMenu_'
 				}
 			}
 		}
@@ -50,34 +55,36 @@ namespace sub
 
 	void PlayersSubAMenu_()
 	{
-		bool bSpectateOn = false, bSpectateOff = false;
-		bool bSetWp = false;
 
-		std::string spectatePlayerStr = "CM_SPECTATE";
-		if (Game::DoesGXTEntryExist(spectatePlayerStr))
-		{
-			spectatePlayerStr = Game::GetGXTEntry(spectatePlayerStr);
-			spectatePlayerStr = spectatePlayerStr.substr(0, spectatePlayerStr.find('('));
-		}
-		else spectatePlayerStr = "Spectate Player";
+		if (!NETWORK_IS_PLAYER_ACTIVE(Static_240)) { 
+			Game::Print::PrintBottomCentre("This player has left or is out of range.");
+			Menu::SetSub_previous();
+		};
+
+		bool bSetWp = false;
+		bool bTeleportTo = false;
+		bool bSpectateOn = false;
+		bool bSpectateOff = false;
 
 		AddTitle(Static_239); // Title = player name
 		AddOption("Set Waypoint To Player", bSetWp);
-		AddLocal(spectatePlayerStr, loop_spectate_player == Static_240, bSpectateOn, bSpectateOff); // Spectate Player
+		AddLocal("Spectate Player", loop_spectate_player == Static_240, bSpectateOn, bSpectateOff); // Spectate Player
+		AddOption("Teleport To Player (Menyoo FiveM exclusivity)", bTeleportTo);
 
 		if (bSpectateOn)
 		{
-			Ped ped;
 			loop_spectate_player = Static_240;
-			for (int i = 0; i < GAME_PLAYERCOUNT; i++)
-			{
-				if (!NETWORK_IS_PLAYER_ACTIVE(i)) continue;
-				ped = GET_PLAYER_PED(i);
-				if (!DOES_ENTITY_EXIST(ped)) continue;
-				NETWORK_SET_IN_SPECTATOR_MODE_EXTENDED(0, ped, 1);
-				NETWORK_SET_IN_SPECTATOR_MODE(false, ped);
+			if (NETWORK_IS_IN_SPECTATOR_MODE()) {
+				for (int i = 0; i < GAME_PLAYERCOUNT; i++)
+				{
+					if (!NETWORK_IS_PLAYER_ACTIVE(i)) continue;
+					const Ped _ped = GET_PLAYER_PED(i);
+					if (!DOES_ENTITY_EXIST(_ped)) continue;
+					NETWORK_SET_IN_SPECTATOR_MODE_EXTENDED(0, _ped, 1);
+					NETWORK_SET_IN_SPECTATOR_MODE(false, _ped);
+				}
 			}
-			ped = GET_PLAYER_PED(loop_spectate_player);
+			const Ped ped = GET_PLAYER_PED(loop_spectate_player);
 			if (DOES_ENTITY_EXIST(ped))
 			{
 				STAT_SET_BOOL(GET_HASH_KEY("MPPLY_CAN_SPECTATE"), true, true);
@@ -86,11 +93,10 @@ namespace sub
 		}
 		if (bSpectateOff)
 		{
-			Ped ped;
 			for (int i = 0; i < GAME_PLAYERCOUNT; i++)
 			{
 				if (!NETWORK_IS_PLAYER_ACTIVE(i)) continue;
-				ped = GET_PLAYER_PED(i);
+				const Ped ped = GET_PLAYER_PED(i);
 				if (!DOES_ENTITY_EXIST(ped)) continue;
 				NETWORK_SET_IN_SPECTATOR_MODE_EXTENDED(0, ped, 1);
 				NETWORK_SET_IN_SPECTATOR_MODE(false, ped);
@@ -101,13 +107,11 @@ namespace sub
 
 		if (bSetWp)
 		{
-			GTAplayer player = Static_240;
-			if (player.IsActive())
-			{
-				const GTAped& playerPed = player.GetPed();
-				if (playerPed.IsAlive())
+			if (Static_240 != PLAYER_ID()) {
+				const int ped = Static_241;
+				if (!IS_PED_INJURED(ped))
 				{
-					const Vector3& pos = playerPed.Position_get();
+					const Vector3& pos = GET_ENTITY_COORDS(ped, false);
 					SET_NEW_WAYPOINT(pos.x, pos.y);
 				}
 				else
@@ -115,10 +119,24 @@ namespace sub
 					SET_WAYPOINT_OFF();
 				}
 			}
-			else
-			{
-				SET_WAYPOINT_OFF();
+			else Game::Print::PrintBottomCentre("You can't set a waypoint on yourself.");
+		}
+
+		if (bTeleportTo) 
+		{
+			if (Static_240 != PLAYER_ID()) {
+				if (DOES_ENTITY_EXIST(Static_241))
+				{
+					const Ped localPed = PLAYER_PED_ID();
+					const Vehicle vehicle = GET_VEHICLE_PED_IS_IN(localPed, false);
+					const Vector3 pos = GET_ENTITY_COORDS(Static_241, false);
+
+					if (vehicle != 0 && GET_PED_IN_VEHICLE_SEAT(vehicle, -1, true) == localPed)
+						SET_PED_COORDS_KEEP_VEHICLE(localPed, pos.x, pos.y, pos.z);
+					else SET_ENTITY_COORDS(localPed, pos.x, pos.y, pos.z, true, true, true, false);
+				}
 			}
+			else Game::Print::PrintBottomCentre("You can't teleport on yourself.");
 		}
 
 	}

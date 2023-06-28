@@ -13,6 +13,7 @@
 
 #include "..\Menu\Menu.h"
 #include "..\Menu\Routine.h"
+#include "..\Scripting\Game.h"
 
 #include "..\Natives\natives2.h"
 
@@ -20,26 +21,31 @@ namespace sub
 {
 	void MainMenu()
 	{
-		AddTitle("MENYOO");
+		AddTitle("MENYOO FIVEM");
 
-		AddOption("Players", null, nullFunc, SUB::PLAYERSSUB);
-		AddOption("Player Options", null, nullFunc, SUB::PLAYEROPS);
-		AddOption("Vehicle Options", null, nullFunc, SUB::VEHICLEOPS);
-		AddOption("Teleport Options", null, nullFunc, SUB::TELEPORTOPS);
-		AddOption("Weapon Options", null, nullFunc, SUB::WEAPONOPS);
-		AddOption("Weather Options", null, nullFunc, SUB::WEATHEROPS);
-		AddOption("Time Options", null, nullFunc, SUB::TIMEOPS);
-		AddOption("Object Spooner", null, nullFunc, SUB::SPOONER_MAIN);
+		AddBreak("Enhanced for FiveM by JustGod");
+		AddOption("Players (FiveM Support)", null, FiveM_Alert, SUB::PLAYERSSUB, true);
+		AddOption("Player Options", null, nullFunc, SUB::PLAYEROPS, true);
+		AddOption("Vehicle Options", null, nullFunc, SUB::VEHICLEOPS, true);
+		AddOption("Teleport Options", null, nullFunc, SUB::TELEPORTOPS, true);
+		AddOption("Weapon Options", null, nullFunc, SUB::WEAPONOPS, true);
+		AddOption("Weather Options", null, nullFunc, SUB::WEATHEROPS, true);
+		AddOption("Time Options", null, nullFunc, SUB::TIMEOPS, true);
+		AddOption("Object Spooner", null, nullFunc, SUB::SPOONER_MAIN, true);
 		//AddOption("Lighting Options", null, nullFunc, SUB::OBJECTSPAWNER_LIGHTINGOPS);
-		AddOption("Misc Options", null, nullFunc, SUB::MISCOPS);
-		AddOption("Settings", null, nullFunc, SUB::SETTINGS);
+		AddOption("Misc Options", null, nullFunc, SUB::MISCOPS, true);
+		AddOption("Settings", null, nullFunc, SUB::SETTINGS, true);
 
 		Static_240 = PLAYER_ID();
 		Static_241 = PLAYER_PED_ID();
 		Static_239 = GET_PLAYER_NAME(Static_240);
 		Static_242 = GET_PLAYER_GROUP(Static_240);
 
-	}
+	};
+
+	void FiveM_Alert() {
+		Game::Print::PrintBottomCentre("This option may be broken. Please report it to JustGod.");
+	};
 
 }
 
