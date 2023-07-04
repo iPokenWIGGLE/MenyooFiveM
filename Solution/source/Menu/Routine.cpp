@@ -91,7 +91,7 @@ DWORD g_FaderTick = 0UL;
 
 void Menu::justopened()
 {
-	Game::Print::PrintBottomCentre(oss_ << "Menyoo v" << MENYOO_CURRENT_VER_ << " added to FiveM by JustGod. Enjoy!", 3500);
+	Game::Print::PrintBottomCentre(oss_ << "Menyoo v" << MENYOO_CURRENT_VER_ << " by MAFINS. FiveM by JustGod.", 3500);
 
 	SET_AUDIO_FLAG("IsDirectorModeActive", true);
 
