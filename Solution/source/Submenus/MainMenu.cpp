@@ -21,9 +21,8 @@ namespace sub
 {
 	void MainMenu()
 	{
-		AddTitle("MENYOO FIVEM");
+		AddTitle("MENYOO");
 
-		AddBreak("Enhanced for FiveM by JustGod");
 		AddOption("Players (FiveM Support)", null, FiveM_Alert, SUB::PLAYERSSUB, true);
 		AddOption("Player Options", null, nullFunc, SUB::PLAYEROPS, true);
 		AddOption("Vehicle Options", null, nullFunc, SUB::VEHICLEOPS, true);
