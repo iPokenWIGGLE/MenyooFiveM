@@ -92,6 +92,7 @@
 		<Vehicle name="BANSHEE" />
 		<Vehicle name="BESTIAGTS" />
 		<Vehicle name="BLISTA2" /><!-- Blista Compact -->
+		<Vehicle name="BRIGHAM" />
 		<Vehicle name="BUFFALO" />
 		<Vehicle name="BUFFALO2" /><!-- Buffalo S -->
 		<Vehicle name="CALICO" /><!-- Calico GTF -->
@@ -105,6 +106,7 @@
 		<Vehicle name="COQUETTE" />
 		<Vehicle name="COQUETTE4" /><!-- Coquette D10 -->
 		<Vehicle name="CORSITA" />
+		<Vehicle name="COUREUR" />
 		<Vehicle name="CYPHER" />
 		<Vehicle name="TAMPA2" /><!-- Drift Tampa -->
 		<Vehicle name="ELEGY" /><!-- Elegy Retro Custom -->
@@ -117,6 +119,7 @@
 		<Vehicle name="FUTO" />
 		<Vehicle name="FUTO2" /><!-- Futo GTX -->
 		<Vehicle name="ZR3802" /><!-- Future Shock ZR380 -->
+		<Vehicle name="GAUNTLET6" />
 		<Vehicle name="GB200" />
 		<Vehicle name="BLISTA3" /><!-- Go Go Monkey Blista -->
 		<Vehicle name="GROWLER" />
@@ -198,6 +201,7 @@
 		<Vehicle name="CHINO" />
 		<Vehicle name="CHINO2" /><!-- Chino Custom -->
 		<Vehicle name="CLIQUE" />
+		<Vehicle name="CLIQUE2" />
 		<Vehicle name="COQUETTE3" /><!-- Coquette BlackFin -->
 		<Vehicle name="DEVIANT" />
 		<Vehicle name="DOMINATOR" />
@@ -298,6 +302,7 @@
 		<Vehicle name="SAVESTRA" />
 		<Vehicle name="STINGER" />
 		<Vehicle name="STINGERGT" />
+		<Vehicle name="STINGERTT" />
 		<Vehicle name="FELTZER3" /><!-- Stirling GT -->
 		<Vehicle name="STROMBERG" />
 		<Vehicle name="SWINGER" />
@@ -423,6 +428,7 @@
 		<Vehicle name="MARSHALL" />
 		<Vehicle name="MENACER" />
 		<Vehicle name="MESA3" /><!-- Merryweather Mesa -->
+		<Vehicle name="MONSTROCITI" />
 		<Vehicle name="BRUISER3" /><!-- Nightmare Bruiser -->
 		<Vehicle name="BRUTUS3" /><!-- Nightmare Brutus -->
 		<Vehicle name="MONSTER5" /><!-- Nightmare Sasquatch -->
@@ -433,6 +439,7 @@
 		<Vehicle name="DUNE5" /><!-- Ramp Buggy -->
 		<Vehicle name="RANCHERXL" />
 		<Vehicle name="RANCHERXL2" /><!-- Rancher XL North Yankton variant -->
+		<Vehicle name="RATEL" />
 		<Vehicle name="RCBANDITO" />
 		<Vehicle name="REBEL2" />
 		<Vehicle name="RIATA" />
@@ -447,6 +454,7 @@
 		<Vehicle name="TROPHYTRUCK" />
 		<Vehicle name="VAGRANT" />
 		<Vehicle name="VERUS" />
+		<Vehicle name="L35" />
 		<Vehicle name="WINKY" />
 		<Vehicle name="YOSEMITE3" /><!-- Yosemite Rancher -->
 		<Vehicle name="ZHABA" />
@@ -741,6 +749,8 @@
 		<Vehicle name="CRUISER" />
 		<Vehicle name="TRIBIKE2" /><!-- Endurex Race Bike -->
 		<Vehicle name="FIXTER" />
+		<Vehicle name="INDUCTOR" />
+		<Vehicle name="INDUCTOR2" />
 		<Vehicle name="SCORCHER" />
 		<Vehicle name="TRIBIKE3" /><!-- Tri-Cycles Race Bike -->
 		<Vehicle name="TRIBIKE" /><!-- Whippet Race Bike -->
@@ -762,6 +772,7 @@
 		<Vehicle name="HYDRA" />
 		<Vehicle name="JET" />
 		<Vehicle name="STARLING" /><!-- LF-22 Starling -->
+		<Vehicle name="STREAMER216" />
 		<Vehicle name="LUXOR" />
 		<Vehicle name="LUXOR2" /><!-- Luxor Deluxe -->
 		<Vehicle name="STUNT" /><!-- Mallard -->
@@ -772,6 +783,7 @@
 		<Vehicle name="NOKOTA" /><!-- P-45 Nokota -->
 		<Vehicle name="LAZER" /><!-- P-996 LAZER -->
 		<Vehicle name="PYRO" />
+		<Vehicle name="RAIJU" />
 		<Vehicle name="BOMBUSHKA" /><!-- RM-10 Bombushka -->
 		<Vehicle name="ROGUE" />
 		<Vehicle name="ALKONOST" /><!-- RO-86 Alkonost -->
@@ -798,6 +810,7 @@
 		<Vehicle name="CARGOBOB3" /><!-- Cargobob Trevor Philips Industries variant -->
 		<Vehicle name="CARGOBOB4" /><!-- Cargobob Drop Zone variant -->
 		<Vehicle name="CONADA" />
+		<Vehicle name="CONADA2" />
 		<Vehicle name="HUNTER" /><!-- FH-1 Hunter -->
 		<Vehicle name="FROGGER" />
 		<Vehicle name="FROGGER2" /><!-- Frogger Trevor Philips Industries variant -->
