@@ -803,7 +803,7 @@ namespace sub
 			{ VEHICLE_OUTLAW, "sssa_dlc_casinoheist", "outlaw"},
 			{ VEHICLE_SULTAN2, "sssa_dlc_casinoheist", "sultan2"},
 			{ VEHICLE_IMORGON, "lgm_dlc_casinoheist", "imorgon"},
-            { VEHICLE_ZHABA, "candc_casinoheist", "zhaba"},
+			{ VEHICLE_ZHABA, "candc_casinoheist", "zhaba"},
 			{ VEHICLE_JB7002, "candc_casinoheist", "jb7002"},
 			{ VEHICLE_MINITANK, "candc_casinoheist", "minitank"},
 			{ VEHICLE_FURIA, "lgm_dlc_casinoheist", "furia"},
